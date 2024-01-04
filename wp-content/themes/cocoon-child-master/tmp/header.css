@@ -1,0 +1,240 @@
+@media screen and (max-width: 1100px) {
+ #common_header .ch_logo_button_pc,
+ #common_header .ch_tel_button_pc,
+ #common_header .ch_menu_button_pc,
+ #common_header .ch_mypage_button_pc{
+  display: none!important;
+ }
+}
+@media screen and (min-width: 1100px) {
+ #common_header .ch_logo_button_sp,
+ #common_header .ch_tel_button_sp,
+ #common_header .ch_menu_button_sp,
+ #common_header .ch_mypage_button_sp{
+  display: none!important;
+ }
+}
+
+#common_header{
+ font-family: 'Noto Sans JP', 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+#common_header * {
+ box-sizing: border-box;
+}
+#common_header .fixed{
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ z-index: 991;
+}
+#common_header .ch_outer {
+ padding: 25px 50px;
+ display: grid;
+ grid-template-columns: 370px 1fr 262px 210px 138px;
+ grid-column-gap: 20px;
+ align-items: center;
+ font-size: 16px;
+ text-align: center;
+ line-height: 1.2em;
+ background-color: #fff;
+}
+#common_header .ch_logo a,
+#common_header .ch_tel a{
+ display: block;
+ line-height: 0;
+ font-size: 0;
+ text-decoration: none;
+ cursor: pointer;
+}
+#common_header .ch_logo_button_pc {
+    height: 50px;
+}
+#common_header .ch_logo_button_pc img {
+    max-width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+#common_header .ch_outer.oyakata {
+ border-bottom: 3px solid #22893B;
+}
+#common_header .ch_outer.jimu {
+ border-bottom: 3px solid #E66700;
+}
+#common_header .ch_outer.kyokasugu {
+ border-bottom: 3px solid #E05E78;
+ grid-template-columns: 370px 1fr 262px 138px; /* マイページ未完成のため */
+}
+#common_header .ch_outer.ccus {
+ border-bottom: 3px solid #3193AB;
+ grid-template-columns: 370px 1fr 262px 138px;
+}
+
+#common_header .ch_mypage a,
+#common_header .ch_mypage a:active,
+#common_header .ch_mypage a:checked,
+#common_header .ch_mypage a:hover{
+ display: block;
+ text-decoration: none;
+ cursor: pointer;
+}
+#common_header .ch_mypage_button_pc{
+ background-color: #E66700;
+ display: grid;
+ padding: 1em 0;
+ border-radius: 2em;
+ color: #fff;
+ font-weight: bold;
+ line-height: 1em;
+ font-size: 0.9em;
+ grid-template-columns: 30px 10em;
+ justify-content: center;
+ align-items: center;
+}
+#common_header .mypage_icon {
+    font-size: 20px;
+}
+
+#common_header .ch_menu a,
+#common_header .ch_menu a:active,
+#common_header .ch_menu a:checked,
+#common_header .ch_menu a:hover{
+ display: block;
+ text-decoration: none;
+ cursor: pointer;
+}
+#common_header .ch_menu_button_pc{
+ background-color: #6E6E6E;
+ display: grid;
+ padding: 1em 0;
+ border-radius: 2em;
+ color: #fff;
+ font-weight: bold;
+ line-height: 1em;
+ font-size: 0.9em;
+ grid-template-columns: 30px 4.5em;
+ justify-content: center;
+ align-items: center;
+}
+#common_header .menu_icon {
+    font-size: 20px;
+}
+
+@media screen and (max-width: 1100px) {
+ #common_header .ch_outer {
+  padding: 10px;
+  grid-template-columns: 185px 1fr 45px 45px 45px;
+  grid-column-gap: 10px;
+  height: 65px;
+ }
+ #common_header a{
+  line-height: inherit;
+  font-size: inherit;
+  color: inherit;
+ }
+ #common_header .ch_logo_button_sp {
+    height: 25px;
+ }
+ #common_header .ch_logo_button_sp img {
+    max-width: 100%;
+    height: 100%;
+    display: block;
+ }
+	
+ #common_header .ch_outer.oyakata {
+ }
+ #common_header .ch_outer.jimu {
+ }
+ #common_header .ch_outer.kyokasugu {
+  grid-template-columns: 185px 1fr 45px 45px; /* マイページ未完成のため */
+ }
+ #common_header .ch_outer.ccus {
+  grid-template-columns: 185px 1fr 45px 45px;
+ }
+
+ #common_header .sp_button{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 5px;
+  align-items: center;
+  justify-content: center;
+ }
+ #common_header .sp_icon{
+  font-size: 25px;
+  line-height: 25px;
+ }
+ #common_header .sp_text{
+  font-size: 9px;
+  line-height: 9px;
+  font-weight: bold;
+ }
+ 
+ #common_header .ch_tel_button_sp{
+  color: #22893B;
+ }
+ #common_header .ch_mypage_button_sp{
+  color: #E66700;
+ }
+ #common_header .ch_menu_button_sp{
+  color: #6E6E6E;
+ }
+}
+
+/* フォーム・マイページ用　設定 */
+#common_header .ch_outer.no_menu {
+    grid-template-columns: 370px 1fr 262px 210px;
+}
+@media screen and (max-width: 1100px) {
+ #common_header .ch_outer.no_menu {
+  grid-template-columns: 185px 1fr 45px 45px;
+ }
+}
+#common_header .ch_outer.no_menu .ch_menu {
+    display: none;
+}
+
+#common_header .ch_outer.no_login {
+    grid-template-columns: 370px 1fr 262px 138px;
+}
+@media screen and (max-width: 1100px) {
+ #common_header .ch_outer.no_login {
+  grid-template-columns: 185px 1fr 45px 45px;
+ }
+}
+#common_header .ch_outer.no_login .ch_mypage {
+    display: none;
+}
+
+#common_header .ch_outer.no_login.no_menu {
+    grid-template-columns: 370px 1fr 262px;
+}
+@media screen and (max-width: 1100px) {
+ #common_header .ch_outer.no_login.no_menu {
+  grid-template-columns: 185px 1fr 45px;
+ }
+}
+
+#common_header .form_header_h1 {
+    display: block;
+    font-size: 20px;
+    margin: 0;
+    background-color: #FF850D;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+    line-height: 1em;
+}
+#common_header .form_header_h1.oyakata {
+ background-color: #22893B;
+}
+#common_header .form_header_h1.jimu {
+ background-color: #E66700;
+}
+#common_header .form_header_h1.kyokasugu {
+ background-color: #E05E78;
+}
+#common_header .form_header_h1.ccus {
+ background-color: #3193AB;
+}

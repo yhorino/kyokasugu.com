@@ -1,0 +1,4 @@
+.rsssl div[class^=rsssl-wizard-] .rsssl-permissions_policy .rdt_TableCell, .rsssl div[class^=rsssl-wizard-] .rsssl-permissions_policy .rdt_TableCol {
+  min-width: fit-content; }
+.rsssl div[class^=rsssl-wizard-] .rsssl-permissions_policy .rsssl-locked .rsssl-shield-overlay {
+  top: calc(100% - 300px); }

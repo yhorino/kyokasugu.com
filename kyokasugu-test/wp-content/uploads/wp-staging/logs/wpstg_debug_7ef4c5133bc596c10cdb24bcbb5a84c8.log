@@ -1,0 +1,16 @@
+[WP STAGING Shutdown Function][E_ERROR][2023-12-23 01:29:38] Uncaught Error: Call to undefined function cdp_vars() in /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-content/plugins/copy-delete-posts/copy-delete-posts.php:595
+Stack trace:
+#0 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-includes/class-wp-hook.php(324): {closure}()
+#1 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-includes/class-wp-hook.php(348): WP_Hook->apply_filters()
+#2 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-includes/plugin.php(517): WP_Hook->do_action()
+#3 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-includes/general-template.php(3068): do_action()
+#4 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-content/themes/cocoon-master/footer.php(96): wp_footer()
+#5 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-includes/template.php(790): require_once('...')
+#6 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-includes/template.php(725): load_template()
+#7 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-includes/general-template.php(92): locate_template()
+#8 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-content/themes/cocoon-master/page.php(21): get_footer()
+#9 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-includes/template-loader.php(106): include('...')
+#10 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-blog-header.php(19): require_once('...')
+#11 /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/index.php(17): require('...')
+#12 {main}
+  thrown - File: /home/rjc/domains/kyokasugu.com/public_html/kyokasugu-test/wp-content/plugins/copy-delete-posts/copy-delete-posts.php Line: 595 | Is it Fatal Error? Yes | Is it Thrown by WP STAGING? No

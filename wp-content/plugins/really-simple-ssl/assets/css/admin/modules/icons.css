@@ -1,0 +1,22 @@
+.rsssl-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .rsssl-icon > div {
+    display: flex; }
+  .rsssl-icon svg {
+    fill: currentColor; }
+  .rsssl-icon-loading svg {
+    animation: spin 2s linear infinite; }
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+  .rsssl-icon.rsssl-click-animation {
+    animation: beat 0.4s ease-out; }
+
+button.button .cmplz-icon.rsssl-icon-loading {
+  padding-top: 6px; }
+  button.button .cmplz-icon.rsssl-icon-loading > div {
+    line-height: inherit; }

@@ -1,0 +1,33 @@
+.rsssl-mixed-content-scan .rsssl-mixed-content-placeholder {
+  height: 250px; }
+  .rsssl-mixed-content-scan .rsssl-mixed-content-placeholder div {
+    background-color: var(--rsp-grey-200);
+    margin: 10px 0;
+    height: 20px; }
+.rsssl-mixed-content-scan .rsssl-shield-overlay {
+  height: 250px;
+  align-items: center;
+  justify-content: center;
+  display: flex; }
+.rsssl-mixed-content-scan .rsssl-field-wrap .rdt_TableCell[data-column-id="2"] {
+  display: grid; }
+.rsssl-mixed-content-scan .rsssl-field-wrap .rdt_TableCol, .rsssl-mixed-content-scan .rsssl-field-wrap .rdt_TableCell {
+  min-width: 110px; }
+.rsssl-mixed-content-scan .rsssl-progress-container .rsssl-progress-bar {
+  border-radius: 5px;
+  height: 20px;
+  background-color: var(--rsp-green); }
+.rsssl-mixed-content-scan .rsssl-task-status {
+  min-width: min-content; }
+  .rsssl-mixed-content-scan .rsssl-task-status.rsssl-warning {
+    background-color: var(--rsp-yellow);
+    color: var(--rsp-text-color); }
+.rsssl-mixed-content-scan button.button {
+  line-height: 1.5;
+  min-height: 10px; }
+.rsssl-mixed-content-scan .rsssl-grid-item-content-footer {
+  display: flex;
+  gap: var(--rsp-spacing-s); }
+.rsssl-mixed-content-scan .rsssl-current-scan-action, .rsssl-mixed-content-scan .rsssl-mixed-content-description {
+  margin: 10px 5px;
+  font-size: var(--rsp-fs-300); }

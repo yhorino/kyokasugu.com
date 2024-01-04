@@ -1,0 +1,41 @@
+/*
+Error: Invalid CSS after "...te-color): #fff": expected "{", was ";"
+        on line 14 of C:\Users\y_hor\OneDrive\ドキュメント\Git\kyokasugu.com\wp-content\themes\cocoon-master\skins\skin-test\scss\style.scss
+
+9:   Priority: 9999999999
+10:   Visibility: false
+11: *\/
+12: /*以下にスタイルシートを記入してください*\/
+13: $bg_color: #e6ecf0;
+14: var(--cocoon-white-color): #fff;
+15: $key_color: #0095d9;
+16: $key_sub_color: #89c3eb;
+17: $key_color_thin: rgba(0, 149, 217, 0.05);
+18: $h_bk_color: #eaf4fc;
+19: $sub_menu_hover_bg_color: #333;
+
+Backtrace:
+C:\Users\y_hor\OneDrive\ドキュメント\Git\kyokasugu.com\wp-content\themes\cocoon-master\skins\skin-test\scss\style.scss:14
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:688:in `block'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:681:in `ruleset'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/engine.rb:290:in `render'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:396:in `run'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/exec/sass_scss.rb:63:in `process_result'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/exec/base.rb:50:in `parse'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/lib/sass/exec/base.rb:18:in `parse!'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/lib/ruby/gems/3.0.0/gems/sass-3.7.4/bin/sass:13:in `<top (required)>'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/bin/sass:23:in `load'
+C:/Program Files/Adobe/Adobe Dreamweaver 2021/ruby/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...te-color): #fff\": expected \"{\", was \";\"\A         on line 14 of C:\Users\y_hor\OneDrive\ドキュメント\Git\kyokasugu.com\wp-content\themes\cocoon-master\skins\skin-test\scss\style.scss\A \A 9:   Priority: 9999999999\A 10:   Visibility: false\A 11: */\A 12: /*以下にスタイルシートを記入してください*/\A 13: $bg_color: #e6ecf0;\A 14: var(--cocoon-white-color): #fff;\A 15: $key_color: #0095d9;\A 16: $key_sub_color: #89c3eb;\A 17: $key_color_thin: rgba(0, 149, 217, 0.05);\A 18: $h_bk_color: #eaf4fc;\A 19: $sub_menu_hover_bg_color: #333;"; }

@@ -1,0 +1,367 @@
+:root {
+ --menu-width: 700px;
+}
+
+@media screen and (max-width: 1100px) {
+ #common_sidemenu .sm_menuclose_button_pc{
+  display: none!important;
+ }
+}
+@media screen and (min-width: 1100px) {
+ #common_sidemenu .sm_logo_button_sp,
+ #common_sidemenu .sm_menuclose_button_sp{
+  display: none!important;
+ }
+}
+
+#common_sidemenu * {
+ box-sizing: border-box;
+}
+
+#common_sidemenu{
+ position: fixed;
+ top: 0;
+ right: calc(var(--menu-width)*-1);
+ width: var(--menu-width);
+ height: 100dvh;
+ background-color: #fff;
+ z-index: 999;
+ transition: all 0.5s;
+ max-width: 100vw;
+ font: 16px 'Noto Sans JP', 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+#common_sidemenu.show{
+ right: 0px;
+}
+#common_sidemenu.hide{
+ right: max(-100vw, calc(var(--menu-width)*-1));
+}
+
+#common_sidemenu .sm_outer{
+ position: relative;
+ width: 100%;
+ height: 100%;
+ padding-top: 119px;
+ padding-bottom: 250px;
+}
+@media screen and (max-width: 1100px) {
+ #common_sidemenu .sm_outer{
+  padding-top: 65px;
+  padding-bottom: 180px;
+ }
+}
+
+#common_sidemenu .sm_header{
+ display: grid;
+ grid-template-columns: 0 1fr 138px;
+ padding: 25px 50px;
+ position: absolute;
+ top: 0;
+ right: 0;
+ background-color: #fff;
+ width: 100%;
+ z-index: 999;
+ height: 119px;
+ justify-content: center;
+ align-items: center;
+ box-shadow: 1px -1px 5px 0px #ccc;
+}
+@media screen and (max-width: 1100px) {
+ #common_sidemenu .sm_header{
+  height: 65px;
+  padding: 10px;
+  grid-template-columns: 185px 1fr 40px;
+  grid-column-gap: 10px;
+ }
+}
+
+#common_sidemenu .sm_outer.oyakata .sm_header {
+ border-bottom: 3px solid #22893B;
+}
+#common_sidemenu .sm_outer.jimu .sm_header {
+ border-bottom: 3px solid #E66700;
+}
+#common_sidemenu .sm_outer.kyokasugu .sm_header {
+ border-bottom: 3px solid #E05E78;
+}
+#common_sidemenu .sm_outer.ccus .sm_header {
+ border-bottom: 3px solid #3193AB;
+}
+#common_sidemenu .sm_logo{
+ display: block;
+ line-height: 0;
+ font-size: 0;
+ text-decoration: none;
+ cursor: pointer;
+}
+#common_sidemenu .sm_logo_button_sp {
+    height: 25px;
+}
+#common_sidemenu .sm_logo_button_sp img{
+    max-width: 100%;
+    height: 100%;
+    display: block;
+}
+
+#common_sidemenu .sm_menuclose_button_pc {
+ background-color: #6E6E6E;
+ display: grid;
+ padding: 1em 0;
+ border-radius: 2em;
+ color: #fff;
+ font-weight: bold;
+ line-height: 1em;
+ font-size: 0.9em;
+ grid-template-columns: 30px 4.5em;
+ justify-content: center;
+ align-items: center;
+ text-decoration: none;
+ cursor: pointer;
+ text-align: center;
+}
+#common_sidemenu .sm_menuclose a,
+#common_sidemenu .sm_menuclose a:active,
+#common_sidemenu .sm_menuclose a:checked,
+#common_sidemenu .sm_menuclose a:hover{
+ display: block;
+ text-decoration: none;
+ cursor: pointer;
+}
+#common_sidemenu .sp_button{
+ display: grid;
+ grid-template-columns: 1fr;
+ grid-row-gap: 5px;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+}
+#common_sidemenu .sp_icon{
+ font-size: 25px;
+ line-height: 25px;
+}
+#common_sidemenu .sp_text{
+ font-size: 10px;
+ line-height: 12px;
+ font-weight: bold;
+}
+#common_sidemenu .sm_menuclose_button_sp{
+ color: #6E6E6E;
+}
+
+
+#common_sidemenu .sm_body {
+ padding: 0 0 20px 0;
+ background-color: #fff;
+ overflow-y: scroll;
+ height: 100%;
+ box-shadow: 1px -1px 5px 0px #ccc;
+}
+
+#common_sidemenu ul.sm_list {
+ width: 440px;
+ max-width: 100vw;
+ margin: 0 auto;
+ list-style: none;
+ padding: 0;
+}
+#common_sidemenu .sm_list li {
+ border-bottom: 1px solid #ccc;
+ text-align: left;
+}
+#common_sidemenu .sm_list li a:hover,
+#common_sidemenu .sm_list li a:active,
+#common_sidemenu .sm_list li a:visited,
+#common_sidemenu .sm_list li a{
+ display: block;
+ padding: 10px 20px;
+ text-decoration: none;
+ cursor: pointer;
+ color: inherit;
+ font-size: 16px;
+ position: relative;
+}
+#common_sidemenu .sm_list li a:after {
+ font-family: "Font Awesome 5 Free";
+ content: '\f054';
+ font-size: 16px;
+ font-weight: 900;
+ /*color: #22893B;*/
+ position: absolute;
+ right: 4%;
+ top: 50%;
+ transform: translate(0%, -50%);
+ -webkit-transform: translate(0%, -50%);
+ -ms-transform: translate(0%, -50%);
+}
+#common_sidemenu .sm_outer.oyakata .sm_list li a:after{
+ color: #22893B;
+}
+#common_sidemenu .sm_outer.jimu .sm_list li a:after{
+ color: #E66700;
+}
+#common_sidemenu .sm_outer.kyokasugu .sm_list li a:after{
+ color: #E05E78;
+}
+#common_sidemenu .sm_outer.ccus .sm_list li a:after{
+ color: #3193AB;
+}
+
+#common_sidemenu .sm_footer{
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ height: 250px;
+ background-color: #fff;
+ box-shadow: 1px -1px 5px 0px #ccc;
+ padding: 50px 125px;
+ display: grid;
+ grid-row-gap: 20px;
+}
+@media screen and (max-width: 1100px) {
+ #common_sidemenu .sm_footer{
+  padding: 25px;
+  grid-template-rows: 1fr;
+  height: 180px;
+ }
+}
+
+#common_sidemenu .sm_footer_telbutton {
+ display: grid;
+ grid-template-columns: 262px;
+ justify-content: center;
+ align-items: center;
+}
+#common_sidemenu .sm_tel a{
+ display: block;
+ line-height: 0;
+ font-size: 0;
+ text-decoration: none;
+ cursor: pointer;
+}
+
+#common_sidemenu .sm_footer_buttons {
+ display: grid;
+ grid-template-columns: 210px 210px;
+ grid-column-gap: 20px;
+}
+@media screen and (max-width: 1100px) {
+ #common_sidemenu .sm_footer_buttons {
+  grid-template-columns: 45% 45%;
+  justify-content: center;
+ }
+}
+
+#common_sidemenu .sm_mypage a,
+#common_sidemenu .sm_mypage a:active,
+#common_sidemenu .sm_mypage a:checked,
+#common_sidemenu .sm_mypage a:hover{
+ display: block;
+ text-decoration: none;
+ cursor: pointer;
+}
+#common_sidemenu .sm_mypage_button_pc{
+ background-color: #E66700;
+ display: grid;
+ padding: 1em 0;
+ border-radius: 2em;
+ color: #fff;
+ font-weight: bold;
+ line-height: 1em;
+ font-size: clamp(11px, 3vw, 16px);
+ grid-template-columns: 30px 9.5em;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+}
+#common_sidemenu .mypage_icon {
+    font-size: 20px;
+}
+#common_sidemenu .sm_form a,
+#common_sidemenu .sm_form a:active,
+#common_sidemenu .sm_form a:checked,
+#common_sidemenu .sm_form a:hover{
+ display: block;
+ text-decoration: none;
+ cursor: pointer;
+}
+#common_sidemenu .sm_form_button_pc{
+ background-color: #22893B;
+ display: grid;
+ padding: 1em 0;
+ border-radius: 2em;
+ color: #fff;
+ font-weight: bold;
+ line-height: 1em;
+ font-size: clamp(11px, 3vw, 16px);
+ grid-template-columns: 30px 6.5em;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+}
+#common_sidemenu .form_icon {
+    font-size: 20px;
+}
+
+.new{
+ font-weight: bold;
+ color: #f00;
+ background-color: #ff0;
+ display: inline-block;
+ padding: 0 0.5em;
+ margin-right: 0.5em;
+ border-radius: 5px;
+ font-size: 0.7em;
+ vertical-align: middle;
+ line-height: 2em;
+}
+
+/* フォーム・マイページ用　設定 */
+#common_header .ch_outer.oyakata.no_login.no_menu {
+    grid-template-columns: 370px 1fr 262px;
+}
+@media screen and (max-width: 1100px) {
+ #common_header .ch_outer.oyakata.no_login.no_menu {
+  grid-template-columns: 185px 1fr 45px;
+ }
+}
+
+
+#common_sidemenu .sm_footer_syokaibox {
+ border: 1px solid #CCCCCC;
+ border-radius: 5px;
+ padding: 30px 25px;
+}
+#common_sidemenu .sm_footer_syokai_title {
+ text-align: center;
+ margin-bottom: 10px;
+}
+#common_sidemenu .sm_footer_syokai_body {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ grid-column-gap: 20px;
+}
+#common_sidemenu .sm_footer_syokai_syokaibutton:visited,
+#common_sidemenu .sm_footer_syokai_syokaibutton:active,
+#common_sidemenu .sm_footer_syokai_syokaibutton:hover,
+#common_sidemenu .sm_footer_syokai_syokaibutton {
+ border: 1px solid #ccc;
+ padding: 5px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ gap: 10px;
+ text-decoration: none;
+ color: inherit;
+ cursor: pointer;
+ border-radius: 2em;
+}
+#common_sidemenu .button_icon {
+ width: 2em;
+}
+@media screen and (max-width: 1100px) {
+ #common_sidemenu .sm_footer_syokai_syokaibutton {
+  font-size: 0.8em;
+ }
+}
+

@@ -1,0 +1,23 @@
+.rsssl-modal.rsssl-onboarding-modal .rsssl-modal-body .rsssl-override-detection-toggle {
+  margin-bottom: -15px;
+  float: right; }
+.rsssl-modal.rsssl-onboarding-modal .rsssl-modal-body input[type=email] {
+  width: 100%;
+  margin-bottom: var(--rsp-spacing-m);
+  border: 2px solid;
+  height: 50px;
+  border-color: var(--rsp-grey-300); }
+.rsssl-modal.rsssl-onboarding-modal .rsssl-modal-body ul {
+  column-count: 1; }
+  .rsssl-modal.rsssl-onboarding-modal .rsssl-modal-body ul li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--rsp-spacing-xxs); }
+    .rsssl-modal.rsssl-onboarding-modal .rsssl-modal-body ul li.rsssl-is-plugin {
+      background-color: var(--rsp-grey-100);
+      border: none;
+      margin: 10px 0;
+      padding: 5px 0;
+      position: relative; }
+    .rsssl-modal.rsssl-onboarding-modal .rsssl-modal-body ul li .rsssl-icon {
+      margin-right: 7px; }
