@@ -21,6 +21,8 @@ if($tel_check == false){
 }
 $_mypage_kyoka = new LoginKyokaData();
 $_mypage_kyoka->constructTmpData($_id);
+$_mypage_kyoka->setEmail($_mail);
+$_mypage_kyoka->setTmpPasswordMailSent('false');
 $_mypage_kyoka->upsertRecordData();
 
 header('Location: ./regist_done.php');

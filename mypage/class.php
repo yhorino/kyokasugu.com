@@ -8,8 +8,8 @@
  include_once('../bin/sf_Api.php');
  define('SELECT_ACCOUNTKYOKA','Id,Name,Phone,kensetugyoukyokabangou__c');
  define('UPDATE_ACCOUNTKYOKA','Id,Name');
- define('SELECT_MYPAGEKYOKA','Id,Name,KokyakuBango__c,Password__c,Password_tmp__c,Status__c');
- define('UPDATE_MYPAGEKYOKA','Id,Name,KokyakuBango__c,Password__c,Password_tmp__c,Status__c');
+ define('SELECT_MYPAGEKYOKA','Id,Name,KokyakuBango__c,Password__c,Password_tmp__c,Status__c,Email__c,TmpPasswordMailSent__c');
+ define('UPDATE_MYPAGEKYOKA','Id,Name,KokyakuBango__c,Password__c,Password_tmp__c,Status__c,Email__c,TmpPasswordMailSent__c');
 
  define('SF_OBJECT_ACCOUNT', 'Account');
  define('SF_OBJECT_KYOKAMYPAGE', 'KyokaMypage__c');
@@ -105,6 +105,8 @@
   private $_Password_tmp__c;
   private $_Status__c;
   private $_Account__c;
+  private $_Email__c;
+  private $_TmpPasswordMailSent__c;
   
   public function __construct(){
   }
@@ -117,6 +119,8 @@
   public function PasswordTmp(){return $this->_Password_tmp__c;}
   public function Status(){return $this->_Status;}
   public function Account(){return $this->_Account__c;}
+  public function Email(){return $this->_Email__c;}
+  public function TmpPasswordMailSent(){return $this->_TmpPasswordMailSent__c;}
   
   /* 設定関数 */
   public function setId($val){$this->_Id = $val;}
@@ -126,6 +130,8 @@
   public function setPasswordTmp($val){$this->_Password_tmp__c = $val;}
   public function setStatus($val){$this->_Status = $val;}
   public function setAccount($val){$this->_Account__c = $val;}
+  public function setEmail($val){$this->_Email__c = $val;}
+  public function setTmpPasswordMailSent($val){$this->_TmpPasswordMailSent__c = $val;}
   
   public function constructTmpData($kyoka_bango){
    $_kokyaku_bango = $this->createKokyakuBango($kyoka_bango); 
@@ -177,6 +183,28 @@
   }
   
   /* SFからレコード取得 */
+  public function getRecordDataById($id){
+   $_select = SELECT_MYPAGEKYOKA;
+   $_from = SF_OBJECT_KYOKAMYPAGE;
+   $_where = "Id = '$id'";
+   $_orderby = "";
+   
+   $_result = (array)sf_soql_select($_select, $_from, $_where, $_orderby);
+   if(count($_result) <= 0) return false;
+   
+   $_row = (array)$_result[0]['fields'];
+   $this->_Id = $_result[0]['Id'];
+   $this->_Name = $_row['Name'];
+   $this->_KokyakuBango__c = $_row['KokyakuBango__c'];
+   $this->_Password__c = $_row['Password__c'];
+   $this->_Password_tmp__c = $_row['Password_tmp__c'];
+   $this->_Status = $_row['Status__c'];
+   $this->_Account = $_row['Account__c'];
+   $this->_TmpPasswordMailSent__c = $_row['TmpPasswordMailSent__c'];
+   
+   return true;
+  }
+  
   public function getRecordDataByAccountId($id){
    $_select = SELECT_MYPAGEKYOKA;
    $_from = SF_OBJECT_KYOKAMYPAGE;
@@ -194,6 +222,7 @@
    $this->_Password_tmp__c = $_row['Password_tmp__c'];
    $this->_Status = $_row['Status__c'];
    $this->_Account = $_row['Account__c'];
+   $this->_TmpPasswordMailSent__c = $_row['TmpPasswordMailSent__c'];
    
    return true;
   }
@@ -218,6 +247,7 @@
    $this->_Password_tmp__c = $_row['Password_tmp__c'];
    $this->_Status = $_row['Status__c'];
    $this->_Account = $_row['Account__c'];
+   $this->_TmpPasswordMailSent__c = $_row['TmpPasswordMailSent__c'];
    
    return true;
   }
@@ -232,6 +262,7 @@
    $_orderby = "";
    
    $updateitems=array(
+     'TmpPasswordMailSent__c'=>$this->TmpPasswordMailSent(),
      'Password__c'=>$this->Password(),
      'Password_tmp__c'=>$this->PasswordTmp(),
      'Status__c'=>$this->Status()
@@ -252,7 +283,9 @@
    $_orderby = "";
    
    $updateitems=array(
+     'TmpPasswordMailSent__c'=>$this->TmpPasswordMailSent(),
      'Password_tmp__c'=>$this->PasswordTmp(),
+     'Email__c'=>$this->Email(),
      'Status__c'=>$this->Status()
     );
    
@@ -265,11 +298,13 @@
    $_type = SF_OBJECT_KYOKAMYPAGE;
    
    $insertitems=array(
+     'TmpPasswordMailSent__c'=>$this->TmpPasswordMailSent(),
      'Account__c'=>$this->Account(),
      'Name'=>$this->Name(),
      'KokyakuBango__c'=>$this->KokyakuBango(),
      'Password__c'=>$this->Password(),
      'Password_tmp__c'=>$this->PasswordTmp(),
+     'Email__c'=>$this->Email(),
      'Status__c'=>$this->Status()
     );
    
