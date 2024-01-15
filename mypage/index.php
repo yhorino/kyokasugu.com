@@ -30,34 +30,40 @@ $description="";
  <?php include_once('pw_toggle.inc'); ?>
  
  <div class="inner">
-  <div id="login_input">
+  <div class="login_input">
   <form action="./login.php" method="post">
    
    <p>顧客番号とパスワードを入力してください。</p>
    
+   <div class="input_item_box">
+    
    <div class="input_item">
-    <span class="input_label">顧客番号</span><input type="text" name="id" value="" required><span>（半角英数字8桁）</span>
+    <span class="input_label">顧客番号（半角英数字8桁）</span><input type="text" name="id" value="" required>
     <input type="hidden" name="mode" value="">
    </div>
    
    <div class="input_item">
-    <span class="input_label">パスワード</span><span class="input_password"><input type="password" name="pass" value="" required><i class="fa-solid fa-eye pw_input_eyeicon"></i></span><span>（半角英数字）</span>
+    <span class="input_label">パスワード（半角英数字）</span><span class="input_password"><input type="password" name="pass" value="" required><i class="fa-solid fa-eye pw_input_eyeicon"></i></span>
    </div>
 
 <?php if ( (isset($view_data['error_invalid_login']))&&(true === $view_data['error_invalid_login']) ) : ?>
     <span class="error">顧客番号またはパスワードに誤りがあります<br></span>
 <?php endif; ?>
+    
+   </div>
    
-   <div class="input_item">
+   <div class="login_button_box">
     <button type="submit" id="login_button">ログイン</button>
    </div>
    
   </form>
-   
-  <div id="regist">
-   <p>初めてご利用する方はこちら</p>
-   <a href="regist.php" id="regist_btn" >新規登録</a>
   </div>
+   
+  <div class="regist_input">
+   <p>初めてご利用する方はこちら</p>
+   <div class="regist_button_box">
+    <a href="regist.php" id="regist_btn" >新規登録</a>
+   </div>
    
   </div>
 

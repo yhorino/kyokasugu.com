@@ -2,7 +2,7 @@
 
 <nav id="common_sidemenu">
  
- <div class="sm_outer jimu">
+ <div class="sm_outer kyokasugu">
   
   <div class="sm_header">
    

@@ -1,7 +1,14 @@
 <?php
+session_start();
 header("Content-type: text/html;charset=utf-8");
 $title="マイページTOP";
 $description="";
+
+include_once('class.php');
+
+$data_unserialize_mypage = unserialize($_SESSION['kyoka_mypage_data']);
+$data_unserialize_account = unserialize($_SESSION['kyoka_account_data']);
+include('./session_check.php');
 ?>
 
 <!doctype html>
@@ -17,8 +24,43 @@ $description="";
  
 <?php include_once('header.php'); ?>
 
+<div class="inner">
+ <h2 class="mypage_title">マイページTOP</h2>
+ <span class="mypage_name"><?php echo $data_unserialize_account->Name();?> 様</span>
+</div>
+ 
+<div class="mypage_buttonbox">
+ <h3 class="mypage_buttonbox_title">ダウンロードする</h3>
+ <div class="mypage_buttonitem">
+  <a href="<?php echo $data_unserialize_mypage->KyokasyoPDF();?>" class="mypage_button">
+   <img src="" class="mypage_button_icon" alt="">
+   <span class="mypage_button_title">許可証</span>
+  </a>
+ </div>
+</div>
 
-	
+<div class="mypage_buttonbox">
+ <h3 class="mypage_buttonbox_title">依頼する</h3>
+ <div class="mypage_buttonitem">
+  <a href="https://www.ccus-center.com/" class="mypage_button">
+   <img src="" class="mypage_button_icon" alt="">
+   <span class="mypage_button_title">建設キャリアアップシステム</span>
+  </a>
+ </div>
+ <div class="mypage_buttonitem">
+  <a href="https://www.xn--y5q0r2lqcz91qdrc.com/" class="mypage_button">
+   <img src="" class="mypage_button_icon" alt="">
+   <span class="mypage_button_title">中小事業主の特別労災</span>
+  </a>
+ </div>
+ <div class="mypage_buttonitem">
+  <a href="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/" class="mypage_button">
+   <img src="" class="mypage_button_icon" alt="">
+   <span class="mypage_button_title">一人親方労災保険</span>
+  </a>
+ </div>
+</div>
+
 <?php include_once('footer.php'); ?>
 
 </body>

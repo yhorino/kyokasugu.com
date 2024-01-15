@@ -2,7 +2,7 @@
 
 <nav id="common_sidemenu">
  
- <div class="sm_outer jimu">
+ <div class="sm_outer kyokasugu">
   
   <div class="sm_header">
    
@@ -27,11 +27,10 @@
   <div class="sm_body">
    <ul class="sm_list">
 	   <li><a href="/mypage/top.php">マイページTOP</a></li>
-	   <li><a href="/mypage/kaisya.php">会社情報</a></li>
-	   <li><a href="/mypage/kanyusya.php">特別加入者情報</a></li>
-	   <li><a href="/mypage/kanyusya.php">会員カード</a></li>
-	   <li><a href="/mypage/kanyusya.php">加入証明書</a></li>
-	   <li><a href="/mypage/download.php">各種ダウンロード・印刷</a></li>
+	   <li><a href="/mypage/top.php">【ダウンロードする】許可証</a></li>
+	   <li><a href="/mypage/top.php">【依頼する】建設キャリアアップシステム</a></li>
+	   <li><a href="/mypage/top.php">【依頼する】中小事業主の特別労災</a></li>
+	   <li><a href="/mypage/top.php">【依頼する】一人親方労災保険</a></li>
    </ul>
   </div>
   
