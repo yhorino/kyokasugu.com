@@ -46,7 +46,7 @@ $description="";
    </div>
 
    <div class="input_item">
-    <span class="input_label">メールアドレス（半角英数字）</span><span class="input_mail"><input type="email" name="mail" value="" required></span>
+    <span class="input_label">メールアドレス</span><span class="input_mail"><input type="email" name="mail" value="" required></span>
    </div>
 
 <?php if ( (isset($view_data['error_notfound']))&&(true === $view_data['error_notfound']) ) : ?>

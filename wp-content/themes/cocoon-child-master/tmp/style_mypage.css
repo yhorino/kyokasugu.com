@@ -30,6 +30,10 @@ span.hide_pc,
 .hide_pc {
   display: none;
 }
+.error{
+ color: #f00;
+ font-weight: bold;
+}
 
 .inner {
  width: 750px;
@@ -138,4 +142,61 @@ span.hide_pc,
 .login_button_box button:after {
 }
  
+}
+
+/* top.php */
+.mypage_buttonbox {
+    margin: 40px 0;
+}
+.mypage_buttonitems {
+    display: grid;
+    gap: 20px 20px;
+    margin: 10px;
+    justify-content: space-evenly;
+}
+@media screen and (min-width: 750px){
+ .mypage_buttonitems {
+     grid-template-columns: 150px 150px 150px 150px;
+ }
+}
+@media screen and (max-width: 750px){
+ .mypage_buttonitems {
+     grid-template-columns: 150px 150px 150px;
+ }
+}
+@media screen and (max-width: 480px){
+ .mypage_buttonitems {
+     grid-template-columns: 150px 150px;
+ }
+}
+.mypage_buttonitem {
+    width: 150px;
+    aspect-ratio: 1/1;
+    background-color: #fff;
+    border: 2px solid #C99C27;
+    border-radius: 6px;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-items: center;
+}
+.mypage_button {
+    display: grid;
+    grid-template-rows: 60px 2em;
+    grid-row-gap: 15px;
+    justify-content: center;
+    align-items: center;
+ text-decoration: none;
+}
+.mypage_button_icon {
+    height: 60px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+.mypage_button_title {
+    color: #C99C27;
+    font-weight: bold;
+ display: flex;
 }

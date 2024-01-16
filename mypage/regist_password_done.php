@@ -29,11 +29,11 @@ $description="";
  ?>
  
  <div class="inner">
-  <div id="login_input">
+  <div class="login_input">
    
    <p>マイページ登録が完了しました。</p>
    
-   <div class="input_item">
+   <div class="regist_button_box">
     <a href="index.php">ログイン画面へ</a>
    </div>
    

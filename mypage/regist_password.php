@@ -30,11 +30,13 @@ $description="";
   <?php include_once('pw_toggle.inc'); ?>
 
  <div class="inner">
-  <div id="login_input">
+  <div class="login_input">
   <form action="./send_pass.php" method="post">
    
    <p>パスワードを登録してください。</p>
    
+   <div class="input_item_box">
+    
    <div class="input_item">
     <span class="input_label">仮パスワード</span><span class="input_password"><input type="text" name="tmppass" value="" required></span><span>（半角英数字）</span>
    </div>
@@ -60,8 +62,10 @@ $description="";
 <?php if ( (isset($view_data['error_datanotfound']))&&(true === $view_data['error_datanotfound']) ) : ?>
     <span class="error">マイページ登録情報が見つかりませんでした。<br></span>
 <?php endif; ?>
+    
+   </div>
    
-   <div class="input_item">
+   <div class="login_button_box">
     <button type="submit" id="send_button">送信</button>
    </div>
    

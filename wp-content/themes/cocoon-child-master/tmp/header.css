@@ -66,6 +66,9 @@
 #common_header .ch_outer.kyokasugu {
  border-bottom: 3px solid #E05E78;
  grid-template-columns: 370px 1fr 262px 138px; /* マイページ未完成のため */
+ /*
+ grid-template-columns: 370px 1fr 262px 210px 138px;
+ */
 }
 #common_header .ch_outer.ccus {
  border-bottom: 3px solid #3193AB;
@@ -149,6 +152,9 @@
  }
  #common_header .ch_outer.kyokasugu {
   grid-template-columns: 185px 1fr 45px 45px; /* マイページ未完成のため */
+  /*
+  grid-template-columns: 185px 1fr 45px 45px 45px;
+  */
  }
  #common_header .ch_outer.ccus {
   grid-template-columns: 185px 1fr 45px 45px;
