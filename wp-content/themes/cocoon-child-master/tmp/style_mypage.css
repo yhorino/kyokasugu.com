@@ -1,0 +1,202 @@
+/* CSS Document */
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: #FBF8F2;
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+  margin: 0;
+  font-size: 16px;
+}
+
+input::placeholder {
+  color: #ddd;
+}
+/* IE */
+input:-ms-input-placeholder {
+  color: #ddd;
+}
+/* Edge */
+input::-ms-input-placeholder {
+  color: #ddd;
+}
+.hide_sp {
+  display: block;
+}
+span.hide_sp {
+  display: inline-block;
+}
+span.hide_pc,
+.hide_pc {
+  display: none;
+}
+.error{
+ color: #f00;
+ font-weight: bold;
+}
+
+.inner {
+ width: 750px;
+ max-width: 90vw;
+ margin: 50px auto;
+}
+.regist_input,
+.login_input {
+ border: 1px solid #ccc;
+ background-color: #fff;
+ padding: 40px 120px;
+ margin: 0 auto 25px auto;
+ border-radius: 6px;
+}
+.input_item_box {
+ display: grid;
+ grid-template-columns: 1fr;
+ grid-row-gap: 20px;
+}
+.regist_button_box,
+.login_button_box {
+ display: grid;
+ grid-template-columns: 200px;
+ justify-content: center;
+ align-items: center;
+ margin: 30px auto 0;
+}
+.input_item {
+ display: grid;
+ grid-template-columns: 1fr 300px;
+ justify-content: center;
+ align-items: center;
+}
+.input_item input {
+ width: 100%;
+ padding: 7px 5px;
+}
+.regist_button_box button,
+.regist_button_box a,
+.login_button_box button {
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ padding: 15px 0;
+ color: #fff;
+ font-size: 18px;
+ font-weight: bold;
+ position: relative;
+ display: grid;
+ justify-content: center;
+ align-items: center;
+ line-height: 1em;
+ text-decoration: none;
+ cursor: pointer;
+}
+.login_button_box button {
+ background-color: #C99C27;
+}
+.regist_button_box button,
+.regist_button_box a {
+ background-color: #22893B;
+}
+.regist_button_box button:after,
+.regist_button_box a:after,
+.login_button_box button:after {
+ font-family: "Font Awesome 5 Free";
+ content: '\f054';
+ font-size: 14px;
+ font-weight: 900;
+ color: #fff;
+ position: absolute;
+ right: 4%;
+ top: 50%;
+ transform: translate(0%, -50%);
+ -webkit-transform: translate(0%, -50%);
+ -ms-transform: translate(0%, -50%);
+}
+.copyright {
+    text-align: center;
+}
+
+@media screen and (max-width: 750px){
+.regist_input,
+.login_input {
+ padding: 30px;
+}
+.input_item_box {
+}
+.regist_button_box,
+.login_button_box {
+}
+.input_item {
+ grid-template-columns: 1fr;
+ justify-content: left;
+ align-items: center;
+}
+.input_item input {
+}
+.regist_button_box a,
+.login_button_box button {
+}
+.login_button_box button {
+}
+.regist_button_box a {
+}
+.regist_button_box a:after,
+.login_button_box button:after {
+}
+ 
+}
+
+/* top.php */
+.mypage_buttonbox {
+    margin: 40px 0;
+}
+.mypage_buttonitems {
+    display: grid;
+    gap: 20px 20px;
+    margin: 10px;
+    justify-content: space-evenly;
+}
+@media screen and (min-width: 750px){
+ .mypage_buttonitems {
+     grid-template-columns: 150px 150px 150px 150px;
+ }
+}
+@media screen and (max-width: 750px){
+ .mypage_buttonitems {
+     grid-template-columns: 150px 150px 150px;
+ }
+}
+@media screen and (max-width: 480px){
+ .mypage_buttonitems {
+     grid-template-columns: 150px 150px;
+ }
+}
+.mypage_buttonitem {
+    width: 150px;
+    aspect-ratio: 1/1;
+    background-color: #fff;
+    border: 2px solid #C99C27;
+    border-radius: 6px;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr;
+    justify-content: center;
+    align-items: center;
+}
+.mypage_button {
+    display: grid;
+    grid-template-rows: 60px 2em;
+    grid-row-gap: 15px;
+    justify-content: center;
+    align-items: center;
+ text-decoration: none;
+}
+.mypage_button_icon {
+    height: 60px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+.mypage_button_title {
+    color: #C99C27;
+    font-weight: bold;
+ display: flex;
+}

@@ -6,10 +6,10 @@
 
 
  include_once('../bin/sf_Api.php');
- define('SELECT_ACCOUNTKYOKA','Id,Name,Phone,kensetugyoukyokabangou__c');
+ define('SELECT_ACCOUNTKYOKA','Id,Name,Phone,kensetugyoukyokabangou__c,kyoka_kokyakubango__c');
  define('UPDATE_ACCOUNTKYOKA','Id,Name');
- define('SELECT_MYPAGEKYOKA','Id,Name,KokyakuBango__c,Password__c,Password_tmp__c,Status__c');
- define('UPDATE_MYPAGEKYOKA','Id,Name,KokyakuBango__c,Password__c,Password_tmp__c,Status__c');
+ define('SELECT_MYPAGEKYOKA','Id,Name,KokyakuBango__c,Password__c,Password_tmp__c,Status__c,Email__c,TmpPasswordMailSent__c,Account__c,KyokasyoPDF__c');
+ define('UPDATE_MYPAGEKYOKA','Id,Name,Password__c,Password_tmp__c,Status__c,Email__c,TmpPasswordMailSent__c');
 
  define('SF_OBJECT_ACCOUNT', 'Account');
  define('SF_OBJECT_KYOKAMYPAGE', 'KyokaMypage__c');
@@ -26,6 +26,7 @@
   private $_Id;
   private $_Name;
   private $_kensetugyoukyokabangou__c;
+  private $_kyoka_kokyakubango__c;
   private $_Phone;
   
   public function __construct(){
@@ -36,11 +37,14 @@
   public function Name(){return $this->_Name;}
   public function Phone(){return $this->_Phone;}
   public function KyokaBango(){return $this->_kensetugyoukyokabangou__c;}
+  public function KokyakuBango(){return $this->_kyoka_kokyakubango__c;}
   
   /* 設定関数 */
+  public function setId($val){$this->_Id = $val;}
   public function setName($val){$this->_Name = $val;}
   public function setPhone($val){$this->_Phone = $val;}
   public function setKyokaBango($val){$this->_kensetugyoukyokabangou__c = $val;}
+  public function setKokyakuBango($val){$this->_kyoka_kokyakubango__c = $val;}
   
   /* 判定関数 */
   public function checkTel($input_tel){
@@ -58,6 +62,48 @@
    $_from = SF_OBJECT_ACCOUNT;
    $_kyokabango = $this->KyokaBango();
    $_where = "kensetugyoukyokabangou__c = '$_kyokabango'";
+   $_orderby = "";
+   
+   $_result = (array)sf_soql_select($_select, $_from, $_where, $_orderby);
+   if(count($_result) <= 0) return false;
+   
+   $_row = (array)$_result[0]['fields'];
+   $this->_Id = $_result[0]['Id'];
+   $this->_Name = $_row['Name'];
+   $this->_Phone = $_row['Phone'];
+   $this->_kensetugyoukyokabangou__c = $_row['kensetugyoukyokabangou__c'];
+   
+   return true;
+  }
+  
+  public function getRecordDataByKokyakuBango(){
+   if($this->KokyakuBango() == '') return false;
+   
+   $_select = SELECT_ACCOUNTKYOKA;
+   $_from = SF_OBJECT_ACCOUNT;
+   $_kokyakubango = $this->KokyakuBango();
+   $_where = "kyoka_kokyakubango__c = '$_kokyakubango'";
+   $_orderby = "";
+   
+   $_result = (array)sf_soql_select($_select, $_from, $_where, $_orderby);
+   if(count($_result) <= 0) return false;
+   
+   $_row = (array)$_result[0]['fields'];
+   $this->_Id = $_result[0]['Id'];
+   $this->_Name = $_row['Name'];
+   $this->_Phone = $_row['Phone'];
+   $this->_kensetugyoukyokabangou__c = $_row['kensetugyoukyokabangou__c'];
+   
+   return true;
+  }
+  
+  public function getRecordDataById(){
+   if($this->Id() == '') return false;
+   
+   $_select = SELECT_ACCOUNTKYOKA;
+   $_from = SF_OBJECT_ACCOUNT;
+   $_id = $this->Id();
+   $_where = "Id = '$_id'";
    $_orderby = "";
    
    $_result = (array)sf_soql_select($_select, $_from, $_where, $_orderby);
@@ -105,6 +151,9 @@
   private $_Password_tmp__c;
   private $_Status__c;
   private $_Account__c;
+  private $_Email__c;
+  private $_TmpPasswordMailSent__c;
+  private $_KyokasyoPDF__c;
   
   public function __construct(){
   }
@@ -117,19 +166,24 @@
   public function PasswordTmp(){return $this->_Password_tmp__c;}
   public function Status(){return $this->_Status;}
   public function Account(){return $this->_Account__c;}
+  public function Email(){return $this->_Email__c;}
+  public function TmpPasswordMailSent(){return $this->_TmpPasswordMailSent__c;}
+  public function KyokasyoPDF(){return $this->_KyokasyoPDF__c;}
   
   /* 設定関数 */
   public function setId($val){$this->_Id = $val;}
   public function setName($val){$this->_Name = $val;}
   public function setKokyakuBango($val){$this->_KokyakuBango__c = $val;}
-  public function setPassword($val){$this->_Password__c = $val;}
   public function setPasswordTmp($val){$this->_Password_tmp__c = $val;}
   public function setStatus($val){$this->_Status = $val;}
   public function setAccount($val){$this->_Account__c = $val;}
+  public function setEmail($val){$this->_Email__c = $val;}
+  public function setTmpPasswordMailSent($val){$this->_TmpPasswordMailSent__c = $val;}
+  public function setPassword($val){
+   $this->_Password__c = password_hash($val, PASSWORD_BCRYPT);
+  }
   
   public function constructTmpData($kyoka_bango){
-   $_kokyaku_bango = $this->createKokyakuBango($kyoka_bango); 
-   $this->setKokyakuBango($_kokyaku_bango);
    $this->setPasswordTmp($this->createTmpPassword());
    $_account_kyoka = new AccountKyokaData();
    $_account_kyoka->setKyokaBango($kyoka_bango);
@@ -141,21 +195,6 @@
   public function createKokyakuBango($kyoka_bango){
    return $this->_createKokyakuBango($kyoka_bango, 0);
   }
-  private function _createKokyakuBango($kyoka_bango, $offset_minutes){
-   $_kyoka_bango = $kyoka_bango;
-   $_offset_minutes = $offset_minutes;
-   $_hm = date('Hi', strtotime('+'.$_offset_minutes.' minutes'));
-   $_kyoka_bango_4 = substr($_kyoka_bango, -4);
-   $_kokyaku_bango = $_hm.$_kyoka_bango_4;
-   if($this->isExistKokyakuBango($_kokyaku_bango)){
-    $_offset_minutes++;
-    if($_offset_minutes > 5){
-     return $_kokyaku_bango; // 諦めろ
-    }
-    $_kokyaku_bango = $this->_createKokyakuBango($_kyoka_bango, $_offset_minutes);
-   }
-   return $_kokyaku_bango;
-  }
   public function createTmpPassword(){
    $_random_text = uniqid(rand(), true);
    $_random_text_4 = substr($_random_text, -4);
@@ -163,20 +202,35 @@
   }
   
   /* 判定関数 */
-  public function isExistKokyakuBango($kokyaku_bango){
-   $_lkd = new LoginKyokaData();
-   $_lkd->setKokyakuBango($kokyaku_bango);
-   $_lkd->getRecordData();
-   if($_lkd->KokyakuBango() != '') return true;
-   else return false;
-  }
   public function checkPassword($input_pass){
-   // あとでパスワード暗号化対応をすること
-   if($input_pass == $this->Password()) return true;
+   if(password_verify($input_pass, $this->Password())) return true;
    else return false;
   }
   
   /* SFからレコード取得 */
+  public function getRecordDataById($id){
+   $_select = SELECT_MYPAGEKYOKA;
+   $_from = SF_OBJECT_KYOKAMYPAGE;
+   $_where = "Id = '$id'";
+   $_orderby = "";
+   
+   $_result = (array)sf_soql_select($_select, $_from, $_where, $_orderby);
+   if(count($_result) <= 0) return false;
+   
+   $_row = (array)$_result[0]['fields'];
+   $this->_Id = $_result[0]['Id'];
+   $this->_Name = $_row['Name'];
+   $this->_KokyakuBango__c = $_row['KokyakuBango__c'];
+   $this->_Password__c = $_row['Password__c'];
+   $this->_Password_tmp__c = $_row['Password_tmp__c'];
+   $this->_Status = $_row['Status__c'];
+   $this->_Account__c = $_row['Account__c'];
+   $this->_TmpPasswordMailSent__c = $_row['TmpPasswordMailSent__c'];
+   $this->_KyokasyoPDF__c = $_row['KyokasyoPDF__c'];
+   
+   return true;
+  }
+  
   public function getRecordDataByAccountId($id){
    $_select = SELECT_MYPAGEKYOKA;
    $_from = SF_OBJECT_KYOKAMYPAGE;
@@ -193,7 +247,9 @@
    $this->_Password__c = $_row['Password__c'];
    $this->_Password_tmp__c = $_row['Password_tmp__c'];
    $this->_Status = $_row['Status__c'];
-   $this->_Account = $_row['Account__c'];
+   $this->_Account__c = $_row['Account__c'];
+   $this->_TmpPasswordMailSent__c = $_row['TmpPasswordMailSent__c'];
+   $this->_KyokasyoPDF__c = $_row['KyokasyoPDF__c'];
    
    return true;
   }
@@ -217,7 +273,9 @@
    $this->_Password__c = $_row['Password__c'];
    $this->_Password_tmp__c = $_row['Password_tmp__c'];
    $this->_Status = $_row['Status__c'];
-   $this->_Account = $_row['Account__c'];
+   $this->_Account__c = $_row['Account__c'];
+   $this->_TmpPasswordMailSent__c = $_row['TmpPasswordMailSent__c'];
+   $this->_KyokasyoPDF__c = $_row['KyokasyoPDF__c'];
    
    return true;
   }
@@ -232,6 +290,7 @@
    $_orderby = "";
    
    $updateitems=array(
+     'TmpPasswordMailSent__c'=>$this->TmpPasswordMailSent(),
      'Password__c'=>$this->Password(),
      'Password_tmp__c'=>$this->PasswordTmp(),
      'Status__c'=>$this->Status()
@@ -252,7 +311,9 @@
    $_orderby = "";
    
    $updateitems=array(
+     'TmpPasswordMailSent__c'=>$this->TmpPasswordMailSent(),
      'Password_tmp__c'=>$this->PasswordTmp(),
+     'Email__c'=>$this->Email(),
      'Status__c'=>$this->Status()
     );
    
@@ -265,11 +326,13 @@
    $_type = SF_OBJECT_KYOKAMYPAGE;
    
    $insertitems=array(
+     'TmpPasswordMailSent__c'=>$this->TmpPasswordMailSent(),
      'Account__c'=>$this->Account(),
      'Name'=>$this->Name(),
      'KokyakuBango__c'=>$this->KokyakuBango(),
      'Password__c'=>$this->Password(),
      'Password_tmp__c'=>$this->PasswordTmp(),
+     'Email__c'=>$this->Email(),
      'Status__c'=>$this->Status()
     );
    

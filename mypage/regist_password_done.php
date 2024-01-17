@@ -31,7 +31,7 @@ $description="";
  <div class="inner">
   <div class="login_input">
    
-   <p>入力いただいたメールアドレスへ「仮パスワード」を記載したメールを送信しました。</p>
+   <p>マイページ登録が完了しました。</p>
    
    <div class="regist_button_box">
     <a href="index.php">ログイン画面へ</a>

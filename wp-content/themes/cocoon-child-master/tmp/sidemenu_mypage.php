@@ -2,7 +2,7 @@
 
 <nav id="common_sidemenu">
  
- <div class="sm_outer jimu">
+ <div class="sm_outer kyokasugu">
   
   <div class="sm_header">
    
@@ -27,16 +27,14 @@
   <div class="sm_body">
    <ul class="sm_list">
 	   <li><a href="/mypage/top.php">マイページTOP</a></li>
-	   <li><a href="/mypage/kaisya.php">会社情報</a></li>
-	   <li><a href="/mypage/kanyusya.php">特別加入者情報</a></li>
-	   <li><a href="/mypage/kanyusya.php">会員カード</a></li>
-	   <li><a href="/mypage/kanyusya.php">加入証明書</a></li>
-	   <li><a href="/mypage/download.php">各種ダウンロード・印刷</a></li>
+	   <li><a href="https://www.ccus-center.com/">【依頼する】建設キャリアアップシステム</a></li>
+	   <li><a href="https://www.xn--y5q0r2lqcz91qdrc.com/">【依頼する】中小事業主の特別労災</a></li>
+	   <li><a href="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/">【依頼する】一人親方労災保険</a></li>
    </ul>
   </div>
   
-  <div class="sm_footer">
    <!--
+  <div class="sm_footer">
    <div class="sm_footer_syokaibox">
     <div class="sm_footer_syokai_title">友達紹介はこちら</div>
     <div class="sm_footer_syokai_body">
@@ -44,8 +42,8 @@
      <a class="sm_footer_syokai_syokaibutton" href="mailto:?subject=友達紹介【一人親方労災保険RJC】&amp;body=こちらからお申込みください%0d%0ahttps://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/mailform_new/single_new/mitsumori_input.php%3futm_source=mypage%26utm_medium=mail%26syoukai_no=<?php echo $_SESSION['row']['CellsNo__c']; ?>"><img src="image/ic_mail.png" class="button_icon"> メールで紹介</a>
     </div>
    </div>
-  -->
  </div>
+  -->
  
 </nav>
 

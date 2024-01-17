@@ -19,6 +19,11 @@ if($login_check == false){
  exit();
 }
 
+$_kyoka_data = new AccountKyokaData();
+$_kyoka_data->setId($_mypage_kyoka->Account());
+$_kyoka_data->getRecordDataById();
+$_SESSION['kyoka_mypage_data'] = serialize($_mypage_kyoka);
+$_SESSION['kyoka_account_data'] = serialize($_kyoka_data);
 
 header('Location: ./top.php');
 exit();

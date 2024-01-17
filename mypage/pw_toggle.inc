@@ -10,7 +10,10 @@
 .pw_input_eyeicon{
  position: absolute;
  right: 0.2em;
- top: 0.2em;
+ top: 50%;
+ transform: translate(0%, -50%);
+ -webkit-transform: translate(0%, -50%);
+ -ms-transform: translate(0%, -50%);
 }
 </style>
 
