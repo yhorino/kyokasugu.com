@@ -27,7 +27,6 @@
   <div class="sm_body">
    <ul class="sm_list">
 	   <li><a href="/mypage/top.php">マイページTOP</a></li>
-	   <li><a href="<?php echo $data_unserialize_mypage->KyokasyoPDF();?>">【ダウンロードする】許可証</a></li>
 	   <li><a href="https://www.ccus-center.com/">【依頼する】建設キャリアアップシステム</a></li>
 	   <li><a href="https://www.xn--y5q0r2lqcz91qdrc.com/">【依頼する】中小事業主の特別労災</a></li>
 	   <li><a href="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/">【依頼する】一人親方労災保険</a></li>

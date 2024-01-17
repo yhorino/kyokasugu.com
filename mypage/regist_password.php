@@ -12,6 +12,11 @@ unset($_SESSION['output_buffer']);
 $title="マイページ　ログイン";
 $description="";
 
+function isChangeMode(){
+ if(isset($_GET['mode']) && $_GET['mode'] == 'change'){ return true;}
+ else { return false;}
+}
+
 ?>
 <!DOCTYPE HTML>
 <html lang="ja" id="login_php">
@@ -30,16 +35,31 @@ $description="";
   <?php include_once('pw_toggle.inc'); ?>
 
  <div class="inner">
+  
+    <?php if(isChangeMode()) { ?>
+   <h2>パスワード変更</h2>
+    <?php } else { ?>
+   <h2>パスワード登録</h2>
+    <?php } ?>
+  
   <div class="login_input">
   <form action="./send_pass.php" method="post">
    
+    <?php if(isChangeMode()) { ?>
+   <p>新しいパスワードを入力してください。</p>
+    <?php } else { ?>
    <p>パスワードを登録してください。</p>
+    <?php } ?>
    
    <div class="input_item_box">
     
+    <?php if(isChangeMode()) { ?>
+     <input type="hidden" name="tmppass" value="<?php echo $_GET['id'];?>">    
+    <?php } else { ?>
    <div class="input_item">
     <span class="input_label">仮パスワード</span><span class="input_password"><input type="text" name="tmppass" value="" required></span><span>（半角英数字）</span>
    </div>
+    <?php } ?>
 
    <div class="input_item">
     <span class="input_label">パスワード</span><span class="input_password"><input type="password" name="pass" value="" required><i class="fa-solid fa-eye pw_input_eyeicon"></i></span><span>（半角英数字）</span>
@@ -74,10 +94,13 @@ $description="";
   </div>
   
   <div id="word_info">
+    <?php if(isChangeMode()) { ?>
+    <?php } else { ?>
   <ul>
    <li><strong>仮パスワード</strong><br>マイページ登録時にトータルマネジマントから送信したメールに記載されています。</li>
   </ul>
  </div>
+    <?php } ?>
   
  </div>
 <?php include_once('footer.php'); ?>

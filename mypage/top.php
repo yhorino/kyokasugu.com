@@ -64,6 +64,11 @@ include('./session_check.php');
   </div>
  </div>
  
+ <div class="mypage_footerbuttons">
+  <div class="mypage_footerbutton">
+   <a href="https://www.kyokasugu.com/mypage/regist_password.php?id=<?php echo $data_unserialize_mypage->Id();?>&mode=change">パスワード変更</a>
+  </div>
+ </div>
 </div>
 
 <?php include_once('footer.php'); ?>

@@ -23,11 +23,13 @@ if($_mypage_kyoka->getRecordDataById($_id) == false){
  exit();
 }
 
-$_SESSION['output_buffer']['error_tmppass_unmatch'] = true;
-if($_tmppass != $_mypage_kyoka->PasswordTmp()){
+if($_tmppass != $_id){
  $_SESSION['output_buffer']['error_tmppass_unmatch'] = true;
- header('Location: ./regist_password.php?id='.$_id);
- exit();
+ if($_tmppass != $_mypage_kyoka->PasswordTmp()){
+  $_SESSION['output_buffer']['error_tmppass_unmatch'] = true;
+  header('Location: ./regist_password.php?id='.$_id);
+  exit();
+ }
 }
 
 $_mypage_kyoka->setPassword($_pass);

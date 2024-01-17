@@ -37,20 +37,16 @@ $description="";
    <div class="input_item_box">
     
    <div class="input_item">
-    <span class="input_label">許可番号（半角数字6桁）</span><input type="text" name="id" value="" required>
+    <span class="input_label">顧客番号（半角数字8桁）</span><input type="text" name="id" value="" required>
     <input type="hidden" name="mode" value="">
    </div>
    
-   <div class="input_item">
-    <span class="input_label">電話番号（半角数字）</span><span class="input_tel"><input type="tel" name="tel" value="" required></span>
-   </div>
-
    <div class="input_item">
     <span class="input_label">メールアドレス</span><span class="input_mail"><input type="email" name="mail" value="" required></span>
    </div>
 
 <?php if ( (isset($view_data['error_notfound']))&&(true === $view_data['error_notfound']) ) : ?>
-    <span class="error">許可番号または電話番号に誤りがあります<br></span>
+    <span class="error">顧客番号に誤りがあります<br></span>
 <?php endif; ?>
    
    </div>
@@ -65,7 +61,7 @@ $description="";
 
   <div id="word_info">
   <ul>
-   <li><strong>許可番号</strong><br>トータルマネジマントが発行した６桁の番号です。<br>許可番号がわからない場合は「<a href="tel:0120968631">0120-968-631</a>」までお問合せください。</li>
+   <li><strong>顧客番号</strong><br>トータルマネジマントが発行した８桁の番号です。<br>顧客番号がわからない場合は「<a href="tel:0120968631">0120-968-631</a>」までお問合せください。</li>
   </ul>
  </div>
   
