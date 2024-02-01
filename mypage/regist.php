@@ -49,6 +49,10 @@ $description="";
     <span class="error">顧客番号に誤りがあります<br></span>
 <?php endif; ?>
    
+<?php if ( (isset($view_data['error_regist']))&&(true === $view_data['error_regist']) ) : ?>
+    <span class="error">仮パスワードの登録に失敗しました<br></span>
+<?php endif; ?>
+   
    </div>
    
    <div class="regist_button_box">
