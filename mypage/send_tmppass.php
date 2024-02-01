@@ -22,7 +22,13 @@ $_mypage_kyoka = new LoginKyokaData();
 $_mypage_kyoka->constructTmpData($_account_kyoka->KyokaBango());
 $_mypage_kyoka->setEmail($_mail);
 $_mypage_kyoka->setTmpPasswordMailSent('false');
-$_mypage_kyoka->upsertRecordData();
+$ret = $_mypage_kyoka->upsertRecordData();
+
+if($ret == false){
+ $_SESSION['output_buffer']['error_regist'] = true;
+ header('Location: ./regist.php');
+ exit();
+}
 
 header('Location: ./regist_done.php');
 exit();
