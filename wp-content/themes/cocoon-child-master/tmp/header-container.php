@@ -46,7 +46,7 @@ if (typeof jQuery === 'undefined') {
    </a>
   </div>
   
-<?php /* ?>
+<?php  ?>
   <div class="ch_mypage">
    <?php  if($sidemenu_mode == 'mypage'){ ?>
    <a href="/mypage/logout.php">
@@ -60,7 +60,7 @@ if (typeof jQuery === 'undefined') {
    </a>
    <?php } ?>
   </div>
-<?php */ ?>
+<?php  ?>
 	 
   <div class="ch_menu">
    <a onclick="menu_slidein();">
