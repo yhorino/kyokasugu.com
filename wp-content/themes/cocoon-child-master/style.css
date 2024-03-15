@@ -59,6 +59,11 @@ main.main {
 	display: none!important;
  }
 }
+@media print {
+ .hide_sp {
+	display: none!important;
+ }
+}
 
 body .is-layout-constrained .fullwidth,
 .fullwidth {
@@ -668,7 +673,7 @@ figure.wp-block-image.size-full.hide_pc.no_margin {
 
 .wp-block-latest-posts.is-grid li a {
     display: grid;
-    grid-template-rows: 1fr 3em 4em;
+    /*grid-template-rows: 1fr 3em 4em;*/
     grid-row-gap: 10px;
 }
 .wp-block-latest-posts__post-excerpt {
@@ -886,7 +891,7 @@ ul.wp-block-latest-posts__list.has-dates.kyoka_magazine_list.wp-block-latest-pos
 .button_box {
     margin: 0 auto;
     padding: 20px;
-    width: 90%;
+    width: 70%;
 }
 /* 共通ボタン */
 
@@ -898,4 +903,32 @@ ul.wp-block-latest-posts__list.has-dates.kyoka_magazine_list.wp-block-latest-pos
     display: none;
 }
 /* ハンバーガーメニュー化に伴い、標準のメニュー表示を非表示 */
+
+/* 20240213 マガジン部分崩れ修正 */
+ul.wp-block-latest-posts__list.has-dates.kyoka_magazine_list.wp-block-latest-posts li {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    background-color: #fff;
+    grid-column-gap: 20px;
+}
+
+.kyoka_magazine_list.wp-block-latest-posts__list.has-dates.wp-block-latest-posts li a {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #fff;
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 0;
+    grid-column-gap: 10px;
+    padding: 0 40px 0 0;
+	border: none;
+}
+.kyoka_magazine_list .wp-block-latest-posts__post-title:after {
+	right: 10px;
+}
+/* 20240213 マガジン部分崩れ修正 */
+
+.footer_link_small{
+ font-size: 0.7em;
+ color: #999;
+}
 
