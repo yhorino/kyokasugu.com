@@ -27,11 +27,16 @@
   <div class="sm_body">
    <ul class="sm_list">
 	   <li><a href="/#voice">お客様の声</a></li>
-	   <li><a href="/#point_pc">選ばれる３つのポイント</a></li>
-	   <li><a href="/#step_pc">スピード申請５ステップ</a></li>
-	   <li><a href="/#service_pc">主なサービス内容</a></li>
-	   <li><a href="/#jimusyo_pc">事務所案内</a></li>
+	   <li><a href="/#point_pc" class="hide_sp">選ばれる３つのポイント</a></li>
+	   <li><a href="/#point_sp" class="hide_pc">選ばれる３つのポイント</a></li>
+	   <li><a href="/#step_pc" class="hide_sp">スピード申請５ステップ</a></li>
+	   <li><a href="/#step_sp" class="hide_pc">スピード申請５ステップ</a></li>
+	   <li><a href="/#service_pc" class="hide_sp">主なサービス内容</a></li>
+	   <li><a href="/#service_sp" class="hide_pc">主なサービス内容</a></li>
+	   <li><a href="/#jimusyo_pc" class="hide_sp">事務所案内</a></li>
+	   <li><a href="/#jimusyo_sp" class="hide_pc">事務所案内</a></li>
 	   <li><a href="/category/kyoka_magazine/">建設業許可マガジン</a></li>
+	   <li><a href="/philosophy/">企業理念</a></li>
 	   <li><a href="/category/お知らせ/">お知らせ</a></li>
    </ul>
   </div>
@@ -66,6 +71,8 @@
 <script>
  jQuery(function($){
   $('#common_sidemenu').addClass('hide');
+
+  $('.sm_list a').click(function(){ menu_slideout(); });
  });
  function menu_slidein(){
   jQuery('#common_sidemenu').removeClass('hide');
